@@ -301,6 +301,9 @@ def find_plugins():
     currently loaded beets plugins. Loads the default plugin set
     first.
     """
+    if _instances:
+        return list(_instances.values())
+
     load_plugins()
     plugins = []
     for cls in _classes:
